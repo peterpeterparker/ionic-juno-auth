@@ -1,0 +1,6 @@
+@if (signedIn()) {
+  <ng-content></ng-content>
+  <app-logout />
+} @else {
+  <app-login />
+}
