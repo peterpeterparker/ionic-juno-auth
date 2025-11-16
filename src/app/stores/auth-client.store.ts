@@ -1,11 +1,11 @@
-import {isNullish} from '@dfinity/utils';
+import { isNullish } from '@dfinity/utils';
 import {
   AuthClient,
   IdbStorage,
   KEY_STORAGE_DELEGATION,
-  KEY_STORAGE_KEY
+  KEY_STORAGE_KEY,
 } from '@icp-sdk/auth/client';
-import type {DelegationChain, ECDSAKeyIdentity} from '@icp-sdk/core/identity';
+import type { DelegationChain, ECDSAKeyIdentity } from '@icp-sdk/core/identity';
 
 export class AuthClientStore {
   static #instance: AuthClientStore | undefined;
@@ -26,8 +26,8 @@ export class AuthClientStore {
     this.#authClient = await AuthClient.create({
       idleOptions: {
         disableIdle: true,
-        disableDefaultIdleCallback: true
-      }
+        disableDefaultIdleCallback: true,
+      },
     });
 
     return this.#authClient;
@@ -56,7 +56,7 @@ export class AuthClientStore {
 
   setAuthClientStorage = async ({
     delegationChain,
-    sessionKey
+    sessionKey,
   }: {
     delegationChain: DelegationChain;
     sessionKey: ECDSAKeyIdentity;
@@ -65,7 +65,10 @@ export class AuthClientStore {
 
     await Promise.all([
       storage.set(KEY_STORAGE_KEY, sessionKey.getKeyPair()),
-      storage.set(KEY_STORAGE_DELEGATION, JSON.stringify(delegationChain.toJSON()))
+      storage.set(
+        KEY_STORAGE_DELEGATION,
+        JSON.stringify(delegationChain.toJSON()),
+      ),
     ]);
   };
 }

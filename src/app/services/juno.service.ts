@@ -19,10 +19,14 @@ export class JunoService {
   );
 
   constructor() {
-    onAuthStateChange((user) => this.user.set(user));
+    onAuthStateChange((user) => {
+      console.log('USER->', user !== null && user !== undefined, user?.key);
+      this.user.set(user);
+    });
   }
 
   async init() {
+    console.log('Init Satellite');
     await initSatellite({
       satelliteId: environment.satelliteId,
       container: environment.container,

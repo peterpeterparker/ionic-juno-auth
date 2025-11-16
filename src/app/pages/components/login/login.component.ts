@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
   async ngOnInit() {
     await SocialLogin.initialize({
       google: {
-        webClientId: "995487803348-obk39ugehki4vnhtm8hthhvei010vn5v.apps.googleusercontent.com",
+        webClientId:
+          '995487803348-obk39ugehki4vnhtm8hthhvei010vn5v.apps.googleusercontent.com',
         iOSClientId:
           '995487803348-6sbcl4v1ioj08k3pt8k3p5di5fvb60dj.apps.googleusercontent.com',
         mode: 'online',
@@ -32,7 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
   async login() {
-    const {nonce} = await initContext();
+    const { nonce } = await initContext();
 
     console.log('Nonce', nonce);
 
@@ -40,7 +41,9 @@ export class LoginComponent implements OnInit {
       provider: 'google',
       options: {
         scopes: ['openid', 'profile', 'email'],
-        nonce
+        nonce,
+        forceRefreshToken: true,
+        forcePrompt: true,
       },
     });
 
@@ -90,13 +93,9 @@ export class LoginComponent implements OnInit {
 
       await this.junoService.init();
     } catch (err: unknown) {
-      console.log("Error:", err);
+      console.log('Error:', err);
     } finally {
       await loading.dismiss();
     }
-  }
-
-  async logout() {
-    await SocialLogin.logout({provider: 'google'});
   }
 }
