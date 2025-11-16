@@ -22,13 +22,12 @@ pub struct OpenIdProviderConfig {
 }
 ```
 
-Aside from this, everything should work out. I do not see any reason why it would not.
+Aside from this, everything works out.
 
-## iOS open issue
+## iOS
 
-Once everything was correctly set up, the login still failed on iOS with the error:
-`{"JwtVerify":{"BadClaim":"nonce"}}`.
+Requires `@capgo/capacitor-social-login` >= `v7.18.0`
 
-This happens because the Capacitor plugin does not transmit the nonce to Google for signature verification.
+See https://github.com/Cap-go/capacitor-social-login/issues/15
 
-Related issue: https://github.com/Cap-go/capacitor-social-login/issues/15
+And it works out 🥳

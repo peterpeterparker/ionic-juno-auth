@@ -29,7 +29,7 @@
     "@capacitor/ios": "^7.4.4",
     "@capacitor/keyboard": "7.0.3",
     "@capacitor/status-bar": "7.0.3",
-    "@capgo/capacitor-social-login": "^7.17.0",
+    "@capgo/capacitor-social-login": "^7.18.0",
     "@dfinity/utils": "^4.0.0",
     "@icp-sdk/auth": "^4.2.0",
     "@icp-sdk/core": "^4.2.2",
