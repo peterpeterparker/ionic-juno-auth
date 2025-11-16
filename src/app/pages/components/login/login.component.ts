@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   async ngOnInit() {
     await SocialLogin.initialize({
       google: {
+        webClientId: "995487803348-obk39ugehki4vnhtm8hthhvei010vn5v.apps.googleusercontent.com",
         iOSClientId:
           '995487803348-6sbcl4v1ioj08k3pt8k3p5di5fvb60dj.apps.googleusercontent.com',
         mode: 'online',
