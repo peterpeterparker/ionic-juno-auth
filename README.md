@@ -22,6 +22,8 @@ pub struct OpenIdProviderConfig {
 }
 ```
 
+Aside from this, everything should work out. I do not see any reason why it would not.
+
 ## iOS open issue
 
 Once everything was correctly set up, the login still failed on iOS with the error:
